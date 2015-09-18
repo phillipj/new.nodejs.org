@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node build.js",
     "serve": "node build.js serve",
-    "lint": "eslint scripts build.js",
+    "lint": "eslint scripts build.js && stylint",
     "load-versions": "node scripts/load-versions.js",
     "start": "npm run serve"
   },
@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^4.0.10",
-    "eslint": "^1.1.0"
+    "eslint": "^1.1.0",
+    "stylint": "^1.2.2"
   }
 }
