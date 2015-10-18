@@ -3,6 +3,7 @@
 'use strict'
 
 const fs = require('fs')
+const path = require('path')
 const semver = require('semver')
 const map = require('map-async')
 const https = require('https')
@@ -55,7 +56,11 @@ function munge (versions) {
   return allVersions
 }
 
-module.exports = loadVersions
+// module.exports = loadVersions
+module.exports = (cb) => {
+  const versions = fs.readFileSync(path.resolve(__dirname, '..', 'source/versions.json'))
+  cb(null, JSON.parse(versions.toString()))
+}
 
 if (require.main === module) {
   loadVersions(function (err, versions) {

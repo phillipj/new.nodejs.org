@@ -21,6 +21,7 @@ const filterStylusPartials = require('./scripts/plugins/filter-stylus-partials')
 const mapHandlebarsPartials = require('./scripts/plugins/map-handlebars-partials')
 const anchorMarkdownHeadings = require('./scripts/plugins/anchor-markdown-headings')
 const loadVersions = require('./scripts/load-versions')
+const latestVersion = require('./scripts/helpers/latestversion')
 
 /** Build **/
 
@@ -175,12 +176,16 @@ function copystatic () {
 
 function fullbuild () {
   copystatic()
-  loadVersions(function (err, versions) {
+  loadVersions(function (err, versions, meta) {
     if (err) { throw err }
     const source = {
       project: {
         versions,
         currentVersion: versions[0].version,
+        currentVersions: {
+          stable: latestVersion(versions),
+          lts: latestVersion(versions, 'lts')
+        },
         banner: {
           visible: true,
           content: '<a href="https://nodejs.org/en/blog/release/v4.2.1/">Long Term Support Release</a>'
