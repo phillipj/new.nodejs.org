@@ -12,14 +12,17 @@
 
                 {{{ contents }}}
 
-                  <p class="home-version">Current stable version: {{ project.currentVersion }}</p>
+                <h2 id="home-downloadbutton" data-version="{{ project.currentVersion }}" data-dl-local="{{ labels.download-for }}">{{ labels.download }}</h2>
 
-                <a href="https://nodejs.org/dist/{{ project.currentVersions.stable }}/" id="home-downloadbutton" data-version="{{ project.currentVersions.stable }}" data-dl-local="{{ labels.download-for }}"> Download for OS X (x64)
-                </a>
+                <a href="https://nodejs.org/dist/{{ project.currentVersions.stable }}/" class="home-downloadbutton">{{ project.currentVersions.stable }} Stable</a>
+                <a href="https://nodejs.org/dist/{{ project.currentVersions.lts }}/" class="home-downloadbutton">{{ project.currentVersions.lts }} LTS</a>
 
                 <ul class="list-divider-pipe home-secondary-links">
-                    <li><a href="https://nodejs.org/dist/{{ project.currentVersions.lts }}/">LTS</a></li>
-                    <li><a href="https://nodejs.org/dist/{{ project.currentVersion }}/">{{ labels.other-downloads }}</a></li>
+                    <li>
+                        <a href="https://nodejs.org/dist/{{ project.currentVersion }}/">{{ labels.other-downloads }}</a>
+                        &#47;
+                        <a href="https://nodejs.org/dist/{{ project.currentVersions.lts }}/">LTS</a>
+                    </li>
                     <li><a href="https://github.com/nodejs/node/blob/{{ project.currentVersion }}/CHANGELOG.md">{{ labels.changelog }}</a></li>
                     <li><a href="{{ site.docs.api.link }}">{{ labels.api }}</a></li>
                 </ul>
