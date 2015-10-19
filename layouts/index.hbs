@@ -12,16 +12,27 @@
 
                 {{{ contents }}}
 
-                <h2 id="home-downloadbutton" data-version="{{ project.currentVersion }}" data-dl-local="{{ labels.download-for }}">{{ labels.download }}</h2>
+                <h2 id="home-downloadhead" data-dl-local="{{ labels.download-for }}">{{ labels.download }}</h2>
 
-                <a href="https://nodejs.org/dist/{{ project.currentVersions.stable }}/" class="home-downloadbutton">{{ project.currentVersions.stable }} Stable</a>
-                <a href="https://nodejs.org/dist/{{ project.currentVersions.lts }}/" class="home-downloadbutton">{{ project.currentVersions.lts }} LTS</a>
+                <a href="https://nodejs.org/dist/{{ project.currentVersions.lts }}/" class="home-downloadbutton" title="Download {{ project.currentVersions.lts }} LTS" data-version="{{ project.currentVersions.lts }}">
+                    {{ project.currentVersions.lts }} LTS
+                </a>
+
+                {{#if project.currentVersions.stable}}
+                    <a href="https://nodejs.org/dist/{{ project.currentVersions.stable }}/" class="home-downloadbutton"  title="Download {{ project.currentVersions.stable }} Stable"  data-version="{{ project.currentVersions.stable }}">
+                        {{ project.currentVersions.stable }} Stable
+                    </a>
+                {{/if}}
 
                 <ul class="list-divider-pipe home-secondary-links">
                     <li>
-                        <a href="https://nodejs.org/dist/{{ project.currentVersion }}/">{{ labels.other-downloads }}</a>
-                        &#47;
-                        <a href="https://nodejs.org/dist/{{ project.currentVersions.lts }}/">LTS</a>
+                        <a href="https://nodejs.org/dist/{{ project.currentVersions.lts }}/">{{ labels.other-downloads }}</a>
+
+                        {{#if project.currentVersions.stable}}
+                            &#47; <a href="https://nodejs.org/dist/{{ project.currentVersions.stable }}/" title="Other Stable Downloads">
+                                Stable
+                            </a>
+                        {{/if}}
                     </li>
                     <li><a href="https://github.com/nodejs/node/blob/{{ project.currentVersion }}/CHANGELOG.md">{{ labels.changelog }}</a></li>
                     <li><a href="{{ site.docs.api.link }}">{{ labels.api }}</a></li>
@@ -70,6 +81,7 @@
     </a>
 
     {{> footer }}
+    <script src="/static/js/download.js" async defer></script>
 
 </body>
 </html>

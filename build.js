@@ -183,11 +183,11 @@ function fullbuild () {
         versions,
         currentVersion: versions[0].version,
         currentVersions: {
-          stable: latestVersion(versions),
-          lts: latestVersion(versions, 'lts')
+          stable: latestVersion.stable(versions),
+          lts: latestVersion.lts(versions)
         },
         banner: {
-          visible: true,
+          visible: false,
           content: '<a href="https://nodejs.org/en/blog/release/v4.2.1/">Long Term Support Release</a>'
         }
       }

@@ -4,7 +4,7 @@ labels:
   current-version: Current Version
   download: Download
   download-for: Download for
-  other-downloads: Other Stable Downloads
+  other-downloads: Other LTS Downloads
   changelog: Changelog
   api: API Docs
 ---

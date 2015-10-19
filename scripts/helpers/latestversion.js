@@ -1,9 +1,10 @@
 'use strict'
 
-module.exports = (versions, fieldToMatch) => {
-  const latest = fieldToMatch
-    ? versions.find((version) => typeof version[fieldToMatch] !== 'undefined')
-    : versions[0]
+const semver = require('semver')
 
-  return latest.version
+exports.stable = (versions) => {
+  const matched = versions.find((version) => typeof version.lts === 'undefined').version
+  return semver.gte(matched, '5.0.0') ? matched : undefined
 }
+
+exports.lts = (versions) => versions.find((version) => typeof version.lts !== 'undefined').version
