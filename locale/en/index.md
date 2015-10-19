@@ -9,6 +9,8 @@ labels:
   other-stable-downloads: Other Stable Downloads
   stable: Stable
   lts: LTS
+  tagline-stable: Latest features
+  tagline-lts: Solid and Stable
   changelog: Changelog
   api: API Docs
 ---

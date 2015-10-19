@@ -23,11 +23,13 @@
 
                 <a href="https://nodejs.org/dist/{{ project.currentVersions.lts }}/" class="home-downloadbutton" title="{{ labels.download }} {{ project.currentVersions.lts }} {{ labels.lts }}" data-version="{{ project.currentVersions.lts }}">
                     {{ project.currentVersions.lts }} {{ labels.lts }}
+                    <small>{{ labels.tagline-lts }}</small>
                 </a>
 
                 {{#if project.currentVersions.stable}}
                     <a href="https://nodejs.org/dist/{{ project.currentVersions.stable }}/" class="home-downloadbutton"  title="{{ labels.download }} {{ project.currentVersions.stable }} {{ labels.stable }}"  data-version="{{ project.currentVersions.stable }}">
                         {{ project.currentVersions.stable }} {{ labels.stable }}
+                        <small>{{ labels.tagline-stable }}</small>
                     </a>
                 {{/if}}
 
