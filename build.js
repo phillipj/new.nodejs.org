@@ -176,7 +176,7 @@ function copystatic () {
 
 function fullbuild () {
   copystatic()
-  loadVersions(function (err, versions, meta) {
+  loadVersions(function (err, versions) {
     if (err) { throw err }
     const source = {
       project: {
