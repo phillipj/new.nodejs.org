@@ -7,9 +7,8 @@
 
     <div id="main">
         <div class="container">
-
             <ul class="blog-index">
-                {{#each collections.blog}}
+                {{#each (limit collections.blog this.pagination.end this.pagination.start)}}
                     {{#if title}}
                         <li>
                             <time datetime="{{ date }}">{{ strftime date "%d %b %y" }}</time>
@@ -23,6 +22,17 @@
                 {{/each}}
             </ul>
 
+            {{#if this.pagination}}
+                <nav class="pagination">
+                    {{#if this.pagination.prev}}
+                        <a href="/{{../../site.locale}}/{{this.pagination.prev.path}}">&lt; Prev</a>
+                    {{/if}}
+
+                    {{#if this.pagination.next}}
+                        <a href="/{{../../site.locale}}/{{this.pagination.next.path}}">Next &gt;</a>
+                    {{/if}}
+                </nav>
+            {{/if}}
         </div>
     </div>
 

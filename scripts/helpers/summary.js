@@ -2,7 +2,7 @@
 
 const cheerio = require('cheerio')
 
-const SUMMARY_LENGHT = 400
+const SUMMARY_LENGHT = 100
 
 module.exports = function (contents, locale, path) {
   let $ = cheerio.load(contents)
